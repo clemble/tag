@@ -1,0 +1,11 @@
+id: tag
+kind: Service
+apiVersion: v1beta1
+selector:
+  name: tag
+containerPort: 10016
+protocol: TCP
+port: 80
+publicIPs:
+  - "104.155.35.168"
+createExternalLoadBalancer: true
