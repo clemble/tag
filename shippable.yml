@@ -19,7 +19,7 @@ services:
     - rabbitmq
 
 after_script:
-  - cp -r target/*.jar ./shippable/buildoutput
+  - cp -r ./target/*.jar ./shippable/buildoutput
 
 after_success:
   - mvn deploy
