@@ -1,6 +1,10 @@
 language: java
 jdk:
     - oraclejdk8
+build_image: shippable/minv2
+
+before_script:
+  - mkdir -p shippable/buildoutput
 
 env:
   global:
@@ -13,6 +17,9 @@ env:
 services:
     - mongodb
     - rabbitmq
+
+after_script:
+  - cp -r target/*.jar ./shippable/buildoutput
 
 after_success:
   - mvn deploy
