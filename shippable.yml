@@ -19,6 +19,7 @@ services:
     - rabbitmq
 
 after_script:
+  - mvn install -Dmaven.test.skip=true
   - cp -r ./target/*.jar ./shippable/buildoutput
 
 after_success:
