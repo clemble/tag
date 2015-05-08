@@ -1,5 +1,6 @@
 package com.clemble.server.tag.controller;
 
+import com.clemble.casino.server.ExternalController;
 import com.clemble.casino.tag.ClembleTag;
 import com.clemble.casino.tag.service.PlayerTagService;
 import com.clemble.server.tag.repository.ServerPlayerTagsRepository;
@@ -17,7 +18,7 @@ import static com.clemble.casino.tag.TagWebMapping.*;
  * Created by mavarazy on 2/3/15.
  */
 @RestController
-public class PlayerTagController implements PlayerTagService {
+public class PlayerTagController implements PlayerTagService, ExternalController {
 
     final private ServerPlayerTagsRepository tagsRepository;
 
