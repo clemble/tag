@@ -17,11 +17,11 @@ import static com.clemble.casino.tag.TagWebMapping.*;
  * Created by mavarazy on 2/3/15.
  */
 @RestController
-public class PlayerTagServiceController implements PlayerTagService {
+public class PlayerTagController implements PlayerTagService {
 
     final private ServerPlayerTagsRepository tagsRepository;
 
-    public PlayerTagServiceController(ServerPlayerTagsRepository tagsRepository) {
+    public PlayerTagController(ServerPlayerTagsRepository tagsRepository) {
         this.tagsRepository = tagsRepository;
     }
 
