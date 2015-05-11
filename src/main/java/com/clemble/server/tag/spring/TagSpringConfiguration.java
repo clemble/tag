@@ -1,7 +1,6 @@
 package com.clemble.server.tag.spring;
 
 import com.clemble.casino.server.player.notification.ServerNotificationService;
-import com.clemble.casino.server.player.notification.SystemNotificationServiceListener;
 import com.clemble.casino.server.spring.common.CommonSpringConfiguration;
 import com.clemble.casino.server.spring.common.MongoSpringConfiguration;
 import com.clemble.casino.server.spring.common.SpringConfiguration;
@@ -34,20 +33,18 @@ public class TagSpringConfiguration implements SpringConfiguration {
 
     @Bean
     public TagSystemPlayerCreatedEventListener tagSystemPlayerCreatedEventListener(
-        SystemNotificationServiceListener notificationServiceListener,
-        ServerPlayerTagsRepository tagsRepository) {
+        ServerPlayerTagsRepository tagsRepository
+    ) {
         TagSystemPlayerCreatedEventListener tagCreationListener = new TagSystemPlayerCreatedEventListener(tagsRepository);
-        notificationServiceListener.subscribe(tagCreationListener);
         return tagCreationListener;
     }
 
     @Bean
     public TagSystemGoalReachedEventListener tagSystemGoalReachedEventListener(
-        SystemNotificationServiceListener notificationServiceListener,
         @Qualifier("playerNotificationService") ServerNotificationService notificationService,
-        ServerPlayerTagsRepository tagsRepository) {
+        ServerPlayerTagsRepository tagsRepository
+    ) {
         TagSystemGoalReachedEventListener tagGoalReachedEventListener = new TagSystemGoalReachedEventListener(tagsRepository, notificationService);
-        notificationServiceListener.subscribe(tagGoalReachedEventListener);
         return tagGoalReachedEventListener;
     }
 
