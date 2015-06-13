@@ -71,9 +71,8 @@ public class ServerPlayerTags implements PlayerAware, VersionAware {
         ServerPlayerTags that = (ServerPlayerTags) o;
 
         if (player != null ? !player.equals(that.player) : that.player != null) return false;
-        if (tags != null ? !tags.equals(that.tags) : that.tags != null) return false;
+        return !(tags != null ? !tags.equals(that.tags) : that.tags != null);
 
-        return true;
     }
 
     @Override
